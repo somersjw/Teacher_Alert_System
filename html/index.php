@@ -10,7 +10,7 @@ $router = new Router($request);
 include 'navbar.html';
 
 $router->get('/', function () {
-	//include 'include.html';
+	include 'include.html';
 	include 'index.html';
 });
 
@@ -20,4 +20,8 @@ $router->get('/teacher', function() {
 
 $router->get('/manage', function() {
     include 'manage.html';
+});
+
+$router->post('/selectUser', function() {
+	echo $_POST["user"];
 });
