@@ -1,4 +1,3 @@
-    
 <?php
 namespace objects\library\Router;
 require_once 'RequestInterface.php';
