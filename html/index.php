@@ -23,5 +23,6 @@ $router->get('/manage', function() {
 });
 
 $router->post('/selectUser', function() {
-	echo $_POST["user"];
+	$_SESSION["user"] = $_POST["user"];
+	header('Location: /teacher');
 });
