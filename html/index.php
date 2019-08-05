@@ -7,6 +7,7 @@ use objects\library\Router\Router;
 
 $request = new Request();
 $router = new Router($request);
+include 'navbar.html';
 
 $router->get('/', function () {
 	//include 'include.html';
