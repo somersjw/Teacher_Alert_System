@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'objects/library/Router/Request.php';
 require_once 'objects/library/Router/Router.php';
 
@@ -23,7 +24,6 @@ $router->get('/manage', function() {
 });
 
 $router->post('/selectUser', function() {
-	session_start();
 	$_SESSION["user"] = $_POST["user"];
 	header('Location: /teacher');
 });
