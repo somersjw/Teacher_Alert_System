@@ -14,6 +14,5 @@ $router->get('/', function () {
 });
 
 $router->get('/teacher', function() {
-	//include 'teacher.html';
-	echo 'test';
+    include 'teacher.html';
 });
