@@ -1,0 +1,21 @@
+httpd.conf
+php.ini
+
+*~
+
+# IDE Produced Files #
+######################
+.idea
+
+# Logs and databases #
+######################
+*.log
+*.sql
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
