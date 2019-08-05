@@ -11,9 +11,9 @@ $router = new Router($request);
 $router->get('/', function () {
 	//include 'include.html';
 	include 'index.html';
-	echo 'test';
 });
 
 $router->get('/teacher', function() {
-    include 'teacher.html';
+	//include 'teacher.html';
+	echo 'test';
 });
