@@ -17,3 +17,7 @@ $router->get('/', function () {
 $router->get('/teacher', function() {
     include 'teacher.html';
 });
+
+$router->get('/manage', function() {
+    include 'manage.html';
+});
