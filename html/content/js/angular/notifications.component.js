@@ -3,7 +3,7 @@
 
     angular.module("AlertSystem")
         .component("notificationList", {
-            templateUrl: "/shared/js/angular/notifications/notification-list.html",
+            templateUrl: "content/js/angular/notification-list.html",
             controller: "NotificationListController"
         })
         .controller("NotificationListController", ["notificationDataService", "ModalService",
