@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 namespace backend\services;
+require_once 'backend/AlertSystemDbGateway.php';
 
 use LAZ\objects\library\FormHelpers;
 use LAZ\objects\library\SiteHelper;
