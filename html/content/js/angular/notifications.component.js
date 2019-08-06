@@ -11,10 +11,10 @@
                 var ctrl = this;
                 ctrl.notificationInfo = [];
 
-                // notificationDataService.getUserNotifications()
-                //     .then (function (data) {
-                //         ctrl.notificationInfo = data;
-                //     });
+                notificationDataService.getUserNotifications()
+                    .then (function (data) {
+                        ctrl.notificationInfo = data;
+                    });
 
                 ctrl.getColor = function () {
                     return (parseInt(ctrl.notificationInfo.unseenCount) > 0) ? {color: "red"} : {color: "black"};
