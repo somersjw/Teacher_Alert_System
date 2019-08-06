@@ -6,12 +6,19 @@ require_once 'objects/library/Router/Router.php';
 use objects\library\Router\Request;
 use objects\library\Router\Router;
 
+if (!array_key_exists("user", $_SESSION)) {
+	$_SESSION["user"] = "Readerdude";
+}
+
+
 $request = new Request();
 $router = new Router($request);
+
+include 'include.html';
 include 'navbar.html';
 
 $router->get('/', function () {
-	include 'include.html';
+	
 	include 'index.html';
 });
 
