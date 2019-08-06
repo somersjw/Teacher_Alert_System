@@ -25,7 +25,7 @@
  */
 (function () {
     'use strict';
-    
+
     angular.module("AlertSystem")
         ['$animate', '$document', '$compile', '$controller', '$http', '$rootScope', '$q', '$templateRequest',
             '$timeout',
@@ -197,5 +197,5 @@
                 }
 
                 return new ModalService();
-            }]);
+            }];
 })();
