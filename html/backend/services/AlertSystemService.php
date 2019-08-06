@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace backed\services;
+namespace backend\services;
 
 use LAZ\objects\library\FormHelpers;
 use LAZ\objects\library\SiteHelper;
