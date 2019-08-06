@@ -2,18 +2,22 @@
 declare(strict_types=1);
 namespace backend\dataAccess;
 
+require_once 'backend/dataAccess/DataManager.php';
+
+use backend\dataAccess\DataManager;
+
 class AlertSystemDbGateway {
-    private $db;
+    private $alertDm;
 
     public function __construct() {
-        $this->db = mysqli_connect("localhost", "test", "test", "alertsystem");
+        $this->alertDm = new DataManager();
     }
 
     public function getSites() {
         $query = "SELECT site_id, name
                   FROM site";
-        $result = mysqli_query($this->db, $query);
-        return mysqli_fetch_all ($result, MYSQLI_ASSOC);
+        $this->alertDm->query($query);
+        return $this->alertDm->fetchAll();
     }
 
     public function getAlertById(int $alertId) {
