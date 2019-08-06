@@ -31,7 +31,9 @@ $router->get('/teacher', function() {
 $router->get('/manage', function() {
 	include 'manage.html';
 	$service = new AlertSystemService();
-	echo $service->getSites();
+	if(!$service->getSites()) {
+		echo "sadddd";
+	}
 });
 
 $router->post('/selectUser', function() {
