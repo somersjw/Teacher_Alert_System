@@ -2,10 +2,12 @@
 declare(strict_types=1);
 namespace backend\services;
 require_once 'backend/dataAccess/AlertSystemDbGateway.php';
+require_once 'backend/businessObjects/AlertSite.php';
 
 use LAZ\objects\library\FormHelpers;
 use LAZ\objects\library\SiteHelper;
-use LAZ\objects\admin2\alertSystem\businessObjects\Alert;
+use backend\businessObjects\AlertSite;
+use backend\businessObjects\Alert;
 use backend\dataAccess\AlertSystemDbGateway;
 use LAZ\objects\shared\businessObjects\AlertSystem\Notification;
 
