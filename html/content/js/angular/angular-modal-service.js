@@ -25,10 +25,8 @@
  */
 (function () {
     'use strict';
-
-    var module = angular.module('angularModalService', []);
-
-    module.factory('ModalService',
+    
+    angular.module("AlertSystem")
         ['$animate', '$document', '$compile', '$controller', '$http', '$rootScope', '$q', '$templateRequest',
             '$timeout',
             function ($animate, $document, $compile, $controller, $http, $rootScope, $q, $templateRequest, $timeout) {
