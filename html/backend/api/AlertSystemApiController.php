@@ -11,13 +11,11 @@ use backend\services\AlertSystemService;
 use LAZ\objects\admin2\alertSystem\businessObjects\AlertSite;
 use LAZ\objects\library\SiteHelper;
 
-class AlertSystemApiController implements Resource {
+class AlertSystemApiController {
     /**
-     * @var Resource
      * @var AlertSystemService
      */
     private $alertService;
-    private $resource;
     public function __construct() {
         $this->alertService = new AlertSystemService();
     }
