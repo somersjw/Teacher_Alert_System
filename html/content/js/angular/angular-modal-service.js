@@ -26,7 +26,8 @@
 (function () {
     'use strict';
 
-    angular.module("AlertSystem")
+    angular.module('AlertSystem')
+    .factory('ModalService',
         ['$animate', '$document', '$compile', '$controller', '$http', '$rootScope', '$q', '$templateRequest',
             '$timeout',
             function ($animate, $document, $compile, $controller, $http, $rootScope, $q, $templateRequest, $timeout) {
@@ -197,5 +198,5 @@
                 }
 
                 return new ModalService();
-            }];
+            }]);
 })();
