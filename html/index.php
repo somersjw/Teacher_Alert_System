@@ -31,10 +31,9 @@ $router->get('/teacher', function() {
 $router->get('/manage', function() {
 	include 'manage.html';
 	echo 'eeee';
-	try {
-			$service = new AlertSystemService();
-			echo 'ddd';
-	}
+	$service = new AlertSystemService();
+	echo 'ddd';
+});
 
 $router->post('/selectUser', function() {
 	$username = explode('*', $_POST["user"])[0];
