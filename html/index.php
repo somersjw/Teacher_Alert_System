@@ -43,5 +43,3 @@ $router->post('/selectUser', function() {
 	$_SESSION["user"] = array("name" => $username, "member_id" => $id);
 	header('Location: /teacher');
 });
-
-phpinfo();

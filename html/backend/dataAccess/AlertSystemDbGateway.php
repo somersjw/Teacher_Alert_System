@@ -6,7 +6,7 @@ class AlertSystemDbGateway {
     private $db;
 
     public function __construct() {
-        $this->db = new mysqli("localhost", "root", "password", "alertsystem");
+        $this->db = new mysqli("localhost", "test", "test", "alertsystem");
     }
 
     public function getSites() {
