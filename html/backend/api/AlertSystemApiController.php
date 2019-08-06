@@ -1,11 +1,13 @@
 <?php
 declare(strict_types=1);
-namespace LAZ\objects\admin2\alertSystem\api;
+namespace backend\api;
+require_once 'backend/services/AlertSystemService.php';
+
 
 use LAZ\objects\admin2\sites\services\SiteService;
 use LAZ\objects\library\Router\Resource;
 use Psr\Http\Message\ServerRequestInterface;
-use LAZ\objects\admin2\alertSystem\services\AlertSystemService;
+use backend\services\AlertSystemService;
 use LAZ\objects\admin2\alertSystem\businessObjects\AlertSite;
 use LAZ\objects\library\SiteHelper;
 

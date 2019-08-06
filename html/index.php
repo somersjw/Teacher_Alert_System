@@ -2,11 +2,11 @@
 session_start();
 require_once 'objects/library/Router/Request.php';
 require_once 'objects/library/Router/Router.php';
-require_once 'backend/services/AlertSystemService.php';
+require_once 'backend/api/AlertSystemApiController.php';
 
 use objects\library\Router\Request;
 use objects\library\Router\Router;
-use backend\services\AlertSystemService;
+use backend\api\AlertSystemApiController;
 
 if (!array_key_exists("user", $_SESSION)) {
 	$_SESSION["user"] = array("name" => "ReaderDude", "member_id" => 1); 
@@ -30,7 +30,7 @@ $router->get('/teacher', function() {
 
 $router->get('/manage', function() {
 	include 'manage.html';
-	$service = new AlertSystemService();
+	$apiController = new AlertSystemApiController();
 	print_r($service->getSites());
 	echo 'ddd';
 });
