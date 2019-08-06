@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace LAZ\objects\admin2\alertSystem\businessObjects;
+namespace backend\businessObjects;
 
 class AlertSite {
     public $siteId;

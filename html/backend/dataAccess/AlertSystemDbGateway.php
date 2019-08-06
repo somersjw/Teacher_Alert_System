@@ -1,8 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace LAZ\objects\admin2\alertSystem\dataAccess;
-
-use LAZ\objects\data\DataManager;
+namespace backend\dataAccess;
 
 class AlertSystemDbGateway {
     private $db;

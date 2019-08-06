@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
-namespace LAZ\objects\admin2\alertSystem\services;
+namespace backed\services;
 
 use LAZ\objects\library\FormHelpers;
 use LAZ\objects\library\SiteHelper;
 use LAZ\objects\admin2\alertSystem\businessObjects\Alert;
-use LAZ\objects\admin2\alertSystem\dataAccess\AlertSystemDbGateway;
+use backend\AlertSystemDbGateway;
 use LAZ\objects\shared\businessObjects\AlertSystem\Notification;
 
 class AlertSystemService {
