@@ -24,7 +24,7 @@
                     ModalService.showModal({
                         controller: "NotificationModal",
                         controllerAs: "$ctrl",
-                        templateUrl: '/shared/js/angular/notifications/user-notifications.html',
+                        templateUrl: 'content/js/angular/user-notifications.html',
                         inputs: {notificationInfo: ctrl.notificationInfo}
                     });
                 };
