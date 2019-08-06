@@ -7,7 +7,7 @@ use objects\library\Router\Request;
 use objects\library\Router\Router;
 
 if (!array_key_exists("user", $_SESSION)) {
-	$_SESSION["user"] = "Readerdude";
+	$_SESSION["user"] = array("name" => "ReaderDude", "member_id" => 1); 
 }
 
 
@@ -31,6 +31,9 @@ $router->get('/manage', function() {
 });
 
 $router->post('/selectUser', function() {
-	$_SESSION["user"] = $_POST["user"];
+	$username = explode('*', $_POST["user"])[0];
+	$id = (int)explode('*', $_POST["user"])[1];
+
+	$_SESSION["user"] = array("name" => $username, "member_id" => $id);
 	header('Location: /teacher');
 });

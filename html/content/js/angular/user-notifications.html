@@ -1,0 +1,41 @@
+<style>
+        .collapsable {
+            display: block;
+            overflow: hidden;
+            height: 0;
+            transition: height 1s;
+            -webkit-transition: height 1s;
+            -moz-transition: height 1s;
+            -o-transition: height 1s;
+        }
+        .collapsable.showMe {
+            height: 100px;
+        }
+    </style>
+    
+    <div class="body-overlay" ng-click="$ctrl.close()"></div>
+    <div class="modalWindow">
+        <div class="modalWindow_header">
+            <h2 style="font-weight: bold;font-size: 24px;">
+                <button class="closeBtn" ng-click="$ctrl.close()">&times;</button>
+                Notifications
+            </h2>
+        </div>
+        <div class="modalWindow_body">
+            <div ng-if="!$ctrl.notificationInfo.notifications.length">
+                <p> No new notifications at this time </p>
+            </div>
+            <div ng-repeat="alert in $ctrl.notificationInfo.notifications" style="padding-bottom:20px;">
+                <button ng-click="$ctrl.readAlert(alert)" style="font-size:20px" ng-style="!alert.viewedAt && {'font-weight': 'bold'}"> {{ alert.alertTitle }}</button>
+                <div ng-class="{ showMe: $ctrl.selected == alert.alertId }" class="collapsable">
+                    <p style="padding-left: 100px;">
+                        {{ alert.alertMessage }}
+                    </p>
+                    <p style="padding-left: 100px;font-weight:bold">
+                        [{{ alert.displayOn }}]
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
