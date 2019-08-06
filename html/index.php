@@ -32,7 +32,7 @@ $router->get('/manage', function() {
 	include 'manage.html';
 });
 
-$router->get('/sites', function() {
+$router->get('/api/sites', function() {
 	$apiController = new AlertSystemApiController();
 	return $apiController->getSites();
 	echo 'ddd';
