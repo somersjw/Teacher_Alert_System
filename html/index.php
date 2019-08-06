@@ -31,9 +31,12 @@ $router->get('/teacher', function() {
 $router->get('/manage', function() {
 	include 'manage.html';
 	echo 'eeee';
-	$service = new AlertSystemService();
-	if(!$service->getSites()) {
-		echo "sadddd";
+	try {
+			$service = new AlertSystemService();
+			echo 'ddd';
+	}
+	finally {
+		echo 'fff';
 	}
 });
 
