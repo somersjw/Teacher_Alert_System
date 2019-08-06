@@ -27,6 +27,6 @@ class DataManager {
     }
 
     public function rowsAffected() {
-        return mysqli_affected_rows($this->db)
+        return mysqli_affected_rows($this->db);
     }
 }
