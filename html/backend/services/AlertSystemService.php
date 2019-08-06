@@ -18,6 +18,10 @@ class AlertSystemService {
         $this->alertGateway = new AlertSystemDbGateway();
     }
 
+    public function getSites() {
+        return AlertSite::fromArraysForCreate($this->alertGateway->getSites());
+    }
+
     public function createAlert($alert) {
         $alert = $this->formatAlertForSQL($alert);
         AlertSystemValidator::validateAlert(Alert::fromArray($alert));

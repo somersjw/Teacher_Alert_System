@@ -21,9 +21,15 @@ class AlertSite {
         );
     }
 
-    public static function fromArrays($arrays) {
+    public static function fromArraysForEdit($arrays) {
         return array_map(function ($arr) {
             return AlertSite::fromArray($arr, true);
+        }, $arrays);
+    }
+
+    public static function fromArraysForCreate($arrays) {
+        return array_map(function ($arr) {
+            return AlertSite::fromArray($arr, false);
         }, $arrays);
     }
 }

@@ -5,13 +5,17 @@ namespace LAZ\objects\admin2\alertSystem\dataAccess;
 use LAZ\objects\data\DataManager;
 
 class AlertSystemDbGateway {
-    /**
-     * @var	DataManager
-     */
-    private $alertDm;
+    private $db;
 
     public function __construct() {
-        $this->alertDm = new DataManager(DataManager::DB_ACCOUNTS, DataManager::LOC_MASTER);
+        $this->db = new mysqli("localhost", "root", "password", "alertsystem");
+    }
+
+    public function getSites() {
+        $query = "SELECT site_id, name
+                  FROM site";
+        $result = mysqli_query($this->db, $query);
+        return mysqli_fetch_all ($result, MYSQLI_ASSOC);
     }
 
     public function getAlertById(int $alertId) {

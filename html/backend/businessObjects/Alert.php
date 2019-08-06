@@ -17,7 +17,7 @@ class Alert {
         $this->displayOn = $displayOn;
         $this->removeOn = $removeOn;
         $this->alertSites = $this->getSitesCSV($sites);
-        $this->sites = AlertSite::fromArrays($sites);
+        $this->sites = AlertSite::fromArraysForEdit($sites);
     }
 
     private function getSitesCSV($sites) {

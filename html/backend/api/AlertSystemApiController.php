@@ -26,8 +26,8 @@ class AlertSystemApiController implements Resource {
     }
 
     public function getSites() {
-        $sites =  AlertSite::fromSiteObjects(SiteService::getActiveSitesForDivision(SiteHelper::LAZ_DIVISION_ID));
-        return $sites;
+        return $this->alertService->getSites();
+        
     }
 
     public function deleteAlert(ServerRequestInterface $request) {
