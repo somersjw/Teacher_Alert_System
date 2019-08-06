@@ -31,7 +31,7 @@ $router->get('/teacher', function() {
 $router->get('/manage', function() {
 	include 'manage.html';
 	$apiController = new AlertSystemApiController();
-	print_r($service->getSites());
+	print_r($apiController->getSites());
 	echo 'ddd';
 });
 
