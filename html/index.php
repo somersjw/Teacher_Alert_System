@@ -35,10 +35,6 @@ $router->get('/manage', function() {
 			$service = new AlertSystemService();
 			echo 'ddd';
 	}
-	finally {
-		echo 'fff';
-	}
-});
 
 $router->post('/selectUser', function() {
 	$username = explode('*', $_POST["user"])[0];
