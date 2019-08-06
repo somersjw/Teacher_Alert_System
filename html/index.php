@@ -30,8 +30,8 @@ $router->get('/teacher', function() {
 
 $router->get('/manage', function() {
 	include 'manage.html';
-	echo 'eeee';
 	$service = new AlertSystemService();
+	print_r($service->getSites());
 	echo 'ddd';
 });
 
