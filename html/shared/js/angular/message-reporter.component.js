@@ -6,7 +6,7 @@
             bindings: {
                 delay: "@?",
             },
-            templateUrl: '/shared/js/angular/ui/message-reporter.html',
+            templateUrl: 'shared/js/angular/message-reporter.html',
             controller: 'MessageReporterCtrl'
         })
         .controller('MessageReporterCtrl',
