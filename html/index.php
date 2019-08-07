@@ -1,10 +1,11 @@
 <?php
-session_start();
+
 require_once 'objects/library/Router/Request.php';
 require_once 'objects/library/Router/Router.php';
 require_once 'backend/api/AlertSystemApiController.php';
 require_once 'backend/api/NotificationApiController.php';
-
+require_once 'backend/businessObjects/Notification.php';
+session_start();
 use objects\library\Router\Request;
 use objects\library\Router\Router;
 use backend\api\AlertSystemApiController;
