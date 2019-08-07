@@ -48,8 +48,10 @@ $router->get('/api/notifications/messages', function() {
 });
 
 $router->post('/api/notifications/viewed', function() {
+	$postdata = file_get_contents("php://input");
+	$request = json_decode($postdata);
 	$apiController = new NotificationApiController();
-	return var_dump($_POST);
+	return var_dump($request);
 	return json_encode($apiController->markAsViewed());
 });
 
