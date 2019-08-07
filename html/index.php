@@ -18,19 +18,22 @@ if (!array_key_exists("user", $_SESSION)) {
 $request = new Request();
 $router = new Router($request);
 
-include 'include.html';
-include 'navbar.html';
 
 $router->get('/', function () {
-	
+	include 'include.html';
+    include 'navbar.html';
 	include 'index.html';
 });
 
 $router->get('/teacher', function() {
+	include 'include.html';
+    include 'navbar.html';
     include 'teacher.html';
 });
 
 $router->get('/manage', function() {
+	include 'include.html';
+    include 'navbar.html';
 	include 'manage.html';
 });
 
