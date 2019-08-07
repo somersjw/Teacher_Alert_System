@@ -4,10 +4,11 @@ namespace backend\api;
 
 require_once 'backend/services/TeacherNotificationService.php';
 require_once 'backend/services/AlertSystemService.php';
+require_once 'backend/services/NotificationSessionService.php';
 
+use backend\services\NotificationSessionService;
 use backend\services\TeacherNotificationService;
 use backend\services\AlertSystemService;
-// use LAZ\objects\razkids\TeacherInfoCache;
 
 class NotificationApiController{
     /**
@@ -19,11 +20,10 @@ class NotificationApiController{
         $this->alertService = new AlertSystemService();
     }
 
-    public function markAsViewed() {
-        $memberId = (int)TeacherInfoCache::getTeacherId();
-        $notification = $this->resource;
-        $alertId = (int)$notification['alertId'];
-        $viewedAt = $notification['viewedAt'];
+    public function markAsViewed($request) {
+        $memberId = NotificationSessionService::getMemberId();
+        $alertId = (int)$request['alertId'];
+        $viewedAt = $request['viewedAt'];
         $this->alertService->markAsViewed($alertId, $viewedAt, $memberId);
     }
 

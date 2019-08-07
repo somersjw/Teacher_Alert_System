@@ -29,9 +29,13 @@ class NotificationSessionService {
         }
     }
 
+    static public function getMemberId() {
+        return (int)$_SESSION["user"]["member_id"];
+    }
+
     static public function getUserSubscriptionSiteList() {
         // NOTE: This is a stub without adding the entire system of tracking user subscriptions
-        switch((int)$_SESSION["user"]["member_id"]) {
+        switch(NotificationSessionService::getMemberId()) {
             case 1:
                 return '2';
                 break;
