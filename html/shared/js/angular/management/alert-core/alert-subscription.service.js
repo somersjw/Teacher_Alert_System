@@ -1,6 +1,6 @@
 angular.module('AlertSystem')
 
-    .factory('alertSystemSubmissionHandler', ['_', function (_) {
+    .factory('alertSystemSubmissionHandler', [function () {
         var subscribers = [];
         var service = {
             publishSubmission: publishSubmission,
