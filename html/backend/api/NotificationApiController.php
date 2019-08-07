@@ -7,7 +7,7 @@ use LAZ\objects\library\Router\Resource;
 use LAZ\objects\admin2\alertSystem\services\AlertSystemService;
 use LAZ\objects\razkids\TeacherInfoCache;
 
-class NotificationApiController{
+class NotificationApiController implements Resource {
     /**
      * @var Resource $resource;
      * @var AlertSystemService $alertService;

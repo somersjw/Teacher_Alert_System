@@ -102,30 +102,38 @@ class AlertSystemDbGateway {
         return $this->alertDm->fetchAll();
     }
 
-    public function getUserNotifications($siteList) {
+    public function getUserNotifications($siteList, $memberId) {
         // TODO: include display_on < NOW() in where clause for prod
-        $query = "SELECT DISTINCT alert.alert_id, alert.alert_title, alert.alert_message, alert.display_on, ama.viewed_at
-                  FROM Alert
-                  LEFT JOIN alert_member_activity AS ama ON alert.alert_id = ama.alert_id
-                  JOIN alert_site ON alert.alert_id = alert_site.alert_id
-                  WHERE alert.remove_on > NOW()
-                  AND alert_site.site_id IN ($siteList)
-                  ORDER BY ama.viewed_at, alert.display_on DESC";
+        $query = "SELECT distinct alert.alert_id, alert.alert_title, alert.alert_message, alert.display_on, alert.remove_on, act.viewed_at
+                    FROM alert
+                    JOIN alert_site ON alert.alert_id = alert_site.alert_id                  
+                    LEFT JOIN ( 
+                    SELECT alert_id, viewed_at
+                    FROM alert_member_activity 
+                    WHERE member_id = $memberId
+                    ) as act on act.alert_id = alert.alert_id
+                    WHERE alert.remove_on > NOW()
+                    AND alert_site.site_id IN ($siteList)  
+            ORDER BY act.viewed_at  ASC";
 
         $this->alertDm->query($query);
         return $this->alertDm->fetchAll();
     }
 
 
-    public function getUserUnreadNotificationCount($siteList) {
+    public function getUserUnreadNotificationCount($siteList, $memberId) {
         // TODO: include display_on < NOW() in where clause for prod
         $query = "SELECT COUNT(DISTINCT (alert.alert_id)) AS unseenCount
-                  FROM Alert
-                  LEFT JOIN alert_member_activity AS ama ON alert.alert_id = ama.alert_id
-                  JOIN alert_site  ON alert.alert_id = alert_site.alert_id
-                  WHERE ama.alert_id IS NULL
-                  AND alert.remove_on > NOW()
-                  AND alert_site.site_id IN ($siteList)";
+                  FROM alert
+                    JOIN alert_site ON alert.alert_id = alert_site.alert_id                  
+                    LEFT JOIN ( 
+                    SELECT alert_id, viewed_at
+                    FROM alert_member_activity 
+                    WHERE member_id = $memberId
+                    ) as act on act.alert_id = alert.alert_id
+                    WHERE alert.remove_on > NOW()
+                    AND act.viewed_at IS NULL
+                    AND alert_site.site_id IN ($siteList)";
 
         $this->alertDm->query($query);
         return $this->alertDm->fetch();

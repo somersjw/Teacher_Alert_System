@@ -1,5 +1,10 @@
 <?php
-namespace LAZ\objects\admin2\alertSystem\services;
+namespace backend\services;
+require_once 'backend/services/NotificationSessionService.php';
+require_once 'backend/services/AlertSystemService.php';
+
+use backend\services\NotificationSessionService;
+use backend\services\AlertSystemService;
 
 class TeacherNotificationService {
     static public function getNotifications() {

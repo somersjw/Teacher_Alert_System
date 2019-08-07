@@ -3,13 +3,16 @@ declare(strict_types=1);
 namespace backend\services;
 require_once 'backend/dataAccess/AlertSystemDbGateway.php';
 require_once 'backend/businessObjects/AlertSite.php';
+require_once 'backend/businessObjects/Notification.php';
+require_once 'backend/services/NotificationSessionService.php';
 
 use LAZ\objects\library\FormHelpers;
 use LAZ\objects\library\SiteHelper;
 use backend\businessObjects\AlertSite;
 use backend\businessObjects\Alert;
 use backend\dataAccess\AlertSystemDbGateway;
-use LAZ\objects\shared\businessObjects\AlertSystem\Notification;
+use backend\businessObjects\Notification;
+use backend\services\NotificationSessionService;
 
 class AlertSystemService {
     /**
@@ -65,13 +68,13 @@ class AlertSystemService {
 
     public function getUserNotifications($siteList) {
         $unseenCount = $this->alertGateway->getUserUnreadNotificationCount($siteList);
-        $alerts = $this->alertGateway->getUserNotifications($siteList);
+        $alerts = $this->alertGateway->getUserNotifications($siteList, $_SESSION["user"]["id"]);
         return Notification::fromArrays($alerts, $unseenCount["unseenCount"]);
     }
 
     public function markAsViewed(int $alertId, $viewedAt, int $memberId) {
         $this->alertGateway->markAsViewed($alertId, $memberId, $viewedAt);
-        //NotificationSessionService::markSessionAlertAsViewed($alertId, $viewedAt);
+        NotificationSessionService::markSessionAlertAsViewed($alertId, $viewedAt);
     }
 
     private function insertAlertSiteAssociations($alert, int $alertId) {
