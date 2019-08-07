@@ -27,7 +27,6 @@ class AlertSystemApiController {
 
     public function getSites() {
         return $this->alertService->getSites();
-
     }
 
     public function deleteAlert(ServerRequestInterface $request) {

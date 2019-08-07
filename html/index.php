@@ -47,6 +47,11 @@ $router->get('/api/alert-system/sites', function() {
 	return json_encode( $apiController->getSites());
 });
 
+$router->get('/api/alert-system/pending', function() {
+	$apiController = new AlertSystemApiController();
+	return json_encode($apiController->getPendingAlerts());
+});
+
 $router->get('/api/notifications/messages', function() {
 	$apiController = new NotificationApiController();
 	return json_encode($apiController->getUserNotifications());
