@@ -10,7 +10,7 @@ angular.module("AlertSystem")
                 ModalService.showModal({
                     controller: "AlertSystemEditModal",
                     controllerAs: "$ctrl",
-                    templateUrl: "/shared/js/angular/alert-system/pending-alert-edit/edit-form.html",
+                    templateUrl: "shared/js/angular/management/pending-alert-edit/edit-form.html",
                     inputs: {
                         alertId: alertId
                     }

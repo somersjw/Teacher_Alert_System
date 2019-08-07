@@ -3,7 +3,7 @@
 
     angular.module("AlertSystem")
         .component("pendingAlertList", {
-            templateUrl: "/shared/js/angular/alert-system/pending-alerts/pending-alert-list.html",
+            templateUrl: "shared/js/angular/management/pending-alerts/pending-alert-list.html",
             controller: "AlertListController",
             bindings: {
                 sites: "<"

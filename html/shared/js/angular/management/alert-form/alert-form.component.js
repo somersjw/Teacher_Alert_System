@@ -3,7 +3,7 @@
 
     angular.module("AlertSystem")
         .component("alertForm", {
-            templateUrl: "/shared/js/angular/alert-system/alert-form/alert-form.html",
+            templateUrl: "shared/js/angular/management/alert-form/alert-form.html",
             controller: "AlertFormCtrl",
             bindings: {
                 alertId: '<?',
