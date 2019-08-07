@@ -42,8 +42,8 @@ $router->get('/api/alert-system/sites', function() {
 
 $router->get('/api/notifications/messages', function() {
 	$apiController = new NotificationApiController();
-	return $apiController->getSites();
-	echo 'ddd';
+	return $apiController->getUserNotifications();
+	echo 'yay';
 });
 
 $router->post('/selectUser', function() {
