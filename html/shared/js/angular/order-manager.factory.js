@@ -1,7 +1,7 @@
 (function() {
 "use strict";
 
-angular.module('shared')
+angular.module('AlertSystem')
 
     .factory('OrderManager', ['$window', function( $window) {
         return function OrderManager(predicateMap, initialOrder, initialReverse) {
