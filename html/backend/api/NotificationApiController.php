@@ -22,7 +22,7 @@ class NotificationApiController{
 
     public function markAsViewed($request) {
         $memberId = NotificationSessionService::getMemberId();
-        error_log($request);
+        error_log(print_r($request, true));
         return;
         $alertId = (int)$request->alertId;
         $viewedAt = $request->viewedAt;
