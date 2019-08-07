@@ -12,7 +12,7 @@ class TeacherNotificationService {
         if ($notifications == null) {
             $alertService = new AlertSystemService();
             $siteList = NotificationSessionService::getUserSubscriptionSiteList();
-            $notifications = $alertService->getUserNotifications($siteList, (int)$_SESSION["user"]["id"]);
+            $notifications = $alertService->getUserNotifications($siteList, (int)$_SESSION["user"]["member_id"]);
             NotificationSessionService::setNotifications($notifications);
         }
         return $notifications;

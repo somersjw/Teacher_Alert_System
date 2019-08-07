@@ -31,7 +31,7 @@ class NotificationSessionService {
 
     static public function getUserSubscriptionSiteList() {
         // NOTE: This is a stub without adding the entire system of tracking user subscriptions
-        switch((int)$_SESSION["user"]["id"]) {
+        switch((int)$_SESSION["user"]["member_id"]) {
             case 1:
                 return '2';
                 break;
