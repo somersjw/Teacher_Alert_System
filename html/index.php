@@ -48,6 +48,10 @@ $router->get('/api/notifications/messages', function() {
 });
 
 $router->post('/selectUser', function() {
+	if (array_key_exists("user", $_SESSION)) {
+		session_destroy();
+	}
+	session_start();
 	$username = explode('*', $_POST["user"])[0];
 	$id = (int)explode('*', $_POST["user"])[1];
 
