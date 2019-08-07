@@ -6,7 +6,7 @@
  */
 angular.module('AlertSystem')
 
-    .factory('messageHandler', ['_', '$rootScope', 'safeApply', function (_, $rootScope, safeApply) {
+    .factory('messageHandler', [ '$rootScope', 'safeApply', function ( $rootScope, safeApply) {
             var subscribers = [];
             var messages = [];
             var service = {
