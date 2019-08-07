@@ -9,8 +9,8 @@
                 sites: "<"
             }
         })
-        .controller("AlertListController", ["alertDataLayer", "messageHandler", "AlertSystemEdit", "OrderManager", "AlertSystemView",
-            function AlertListController(alertDataLayer, messageHandler, AlertSystemEdit, OrderManager, AlertSystemView) {
+        .controller("AlertListController", ["alertDataLayer", "messageHandler", "AlertSystemEdit", "OrderManager",
+            function AlertListController(alertDataLayer, messageHandler, AlertSystemEdit, OrderManager) {
                 var ctrl = this;
                 ctrl.orderManager = new OrderManager({}, '-alertId');
 
@@ -18,10 +18,6 @@
                     .then (function (data) {
                         ctrl.pending = data;
                     });
-
-                ctrl.showAlert = function (alertId) {
-                    AlertSystemView.show(alertId);
-                };
 
                 ctrl.deleteAlert = function (alertId) {
                     alertDataLayer.deleteAlert(alertId)
