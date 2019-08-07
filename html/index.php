@@ -5,11 +5,14 @@ require_once 'objects/library/Router/Router.php';
 require_once 'backend/api/AlertSystemApiController.php';
 require_once 'backend/api/NotificationApiController.php';
 require_once 'backend/businessObjects/Notification.php';
+require_once 'backend/dataAccess/DataManager.php';
+
 session_start();
 use objects\library\Router\Request;
 use objects\library\Router\Router;
 use backend\api\AlertSystemApiController;
 use backend\api\NotificationApiController;
+use backend\dataAccess\DataManager;
 
 if (!array_key_exists("user", $_SESSION)) {
 	$_SESSION["user"] = array("name" => "ReaderDude", "member_id" => 1); 
@@ -65,5 +68,18 @@ $router->post('/selectUser', function() {
 	$id = (int)explode('*', $_POST["user"])[1];
 
 	$_SESSION["user"] = array("name" => $username, "member_id" => $id);
+	header('Location: /teacher');
+});
+
+$router->post('/resetDemo', function() {
+	if (array_key_exists("user", $_SESSION)) {
+		session_destroy();
+	}
+	session_start();
+	$_SESSION["user"] = array("name" => "ReaderDude", "member_id" => 1); 
+
+	$dm = new DataManager();
+	$dm->resetDb();
+
 	header('Location: /teacher');
 });
