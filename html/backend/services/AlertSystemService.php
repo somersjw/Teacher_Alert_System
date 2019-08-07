@@ -3,6 +3,7 @@ declare(strict_types=1);
 namespace backend\services;
 require_once 'backend/dataAccess/AlertSystemDbGateway.php';
 require_once 'backend/businessObjects/AlertSite.php';
+require_once 'backend/businessObjects/Alert.php';
 require_once 'backend/businessObjects/Notification.php';
 require_once 'backend/services/NotificationSessionService.php';
 
