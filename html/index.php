@@ -39,6 +39,7 @@ $router->get('/manage', function() {
 	include 'include.html';
     include 'navbar.html';
 	include 'manage.html';
+	echo 'ddd';
 });
 
 $router->get('/api/alert-system/sites', function() {
@@ -57,7 +58,6 @@ $router->post('/api/notifications/viewed', function() {
 	$apiController = new NotificationApiController();
 	return json_encode($apiController->markAsViewed($request));
 });
-
 
 $router->post('/selectUser', function() {
 	if (array_key_exists("user", $_SESSION)) {
