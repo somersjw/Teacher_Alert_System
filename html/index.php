@@ -39,14 +39,12 @@ $router->get('/manage', function() {
 
 $router->get('/api/alert-system/sites', function() {
 	$apiController = new AlertSystemApiController();
-	return $apiController->getSites();
-	echo 'ddd';
+	return json_encode( $apiController->getSites());
 });
 
 $router->get('/api/notifications/messages', function() {
 	$apiController = new NotificationApiController();
-	return $apiController->getUserNotifications();
-	echo 'yay';
+	return json_encode($apiController->getUserNotifications());
 });
 
 $router->post('/selectUser', function() {
