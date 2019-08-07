@@ -22,10 +22,8 @@ class NotificationApiController{
 
     public function markAsViewed($request) {
         $memberId = NotificationSessionService::getMemberId();
-        error_log(print_r($request, true));
-        return;
-        $alertId = (int)$request->alertId;
-        $viewedAt = $request->viewedAt;
+        $alertId = $request["alertId"];
+        $viewedAt = $request["viewedAt"];
         $this->alertService->markAsViewed($alertId, $viewedAt, $memberId);
     }
 
