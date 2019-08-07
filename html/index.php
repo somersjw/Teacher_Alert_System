@@ -47,6 +47,13 @@ $router->get('/api/notifications/messages', function() {
 	return json_encode($apiController->getUserNotifications());
 });
 
+$router->post('/api/notifications/viewed', function() {
+	print_r($_POST);
+	// $apiController = new NotificationApiController();
+	// return json_encode($apiController->getUserNotifications());
+});
+
+
 $router->post('/selectUser', function() {
 	if (array_key_exists("user", $_SESSION)) {
 		session_destroy();
