@@ -1,5 +1,5 @@
 <?php
-namespace LAZ\objects\shared\businessObjects\AlertSystem;
+namespace backend\businessObjects;
 
 class Notification {
     public $alertId;
