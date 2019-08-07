@@ -1,11 +1,10 @@
 <?php
 declare (strict_types=1);
-namespace LAZ\objects\shared\api;
+namespace backend\api;
 
-use LAZ\objects\admin2\alertSystem\services\TeacherNotificationService;
-use LAZ\objects\library\Router\Resource;
-use LAZ\objects\admin2\alertSystem\services\AlertSystemService;
-use LAZ\objects\razkids\TeacherInfoCache;
+use backend\services\TeacherNotificationService;
+use backend\services\AlertSystemService;
+// use LAZ\objects\razkids\TeacherInfoCache;
 
 class NotificationApiControlle{
     /**
