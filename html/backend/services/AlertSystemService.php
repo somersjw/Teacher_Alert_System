@@ -67,7 +67,7 @@ class AlertSystemService {
     }
 
     public function getUserNotifications($siteList) {
-        $unseenCount = $this->alertGateway->getUserUnreadNotificationCount($siteList);
+        $unseenCount = $this->alertGateway->getUserUnreadNotificationCount($siteList, $_SESSION["user"]["member_id"]);
         $alerts = $this->alertGateway->getUserNotifications($siteList, $_SESSION["user"]["member_id"]);
         return Notification::fromArrays($alerts, $unseenCount["unseenCount"]);
     }
