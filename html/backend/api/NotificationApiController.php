@@ -2,6 +2,9 @@
 declare (strict_types=1);
 namespace backend\api;
 
+require_once 'backend/services/TeacherNotificationService.php';
+require_once 'backend/services/AlertSystemService.php';
+
 use backend\services\TeacherNotificationService;
 use backend\services\AlertSystemService;
 // use LAZ\objects\razkids\TeacherInfoCache;
