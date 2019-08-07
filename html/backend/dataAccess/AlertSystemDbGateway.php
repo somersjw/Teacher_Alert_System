@@ -93,7 +93,7 @@ class AlertSystemDbGateway {
     }
 
     public function getAlertSites(int $alertId) {
-        $query = "SELECT alert_site.site_id, site.name, site.abbreviation
+        $query = "SELECT alert_site.site_id, site.name
                   FROM alert_site, site
                   WHERE alert_site.alert_id = $alertId
                   AND alert_site.site_id = site.site_id";
