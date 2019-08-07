@@ -11,7 +11,6 @@ class DataManager {
     }
 
     public function query($query) {
-      error_log(print_r($query, true));
         $this->result = mysqli_query($this->db, $query);
     }
 
