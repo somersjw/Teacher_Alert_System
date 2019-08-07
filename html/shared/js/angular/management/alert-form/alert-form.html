@@ -1,0 +1,55 @@
+<style>
+    textarea {
+        border: solid 1px #ccc;
+        font-family: arial, helvetica, geneva, sans-serif;
+        font-size: 13px;
+        padding: 3px 4px;
+    }
+</style>
+
+<form name="$ctrl.formName">
+    <table>
+        <tr>
+            <td class="formLabel"> Alert Title</td>
+            <td class="formValue"> <input type="text" style="width:320px;" name="alertTitle"  minlength="5" maxlength="$ctrl.max" ng-model="$ctrl.alert.alertTitle" required/> </td>
+        </tr>
+
+        <tr>
+            <td class="formLabel"> Alert Message</td>
+            <td class="formValue"> <textarea style="resize:none;" cols="45" rows="6" name="alertMessage" maxlength="255" ng-model="$ctrl.alert.alertMessage"> </textarea> </td>
+            <td> {{ 255 - $ctrl.alert.alertMessage.length }} characters left</td>
+        </tr>
+
+        <tr>
+            <td valign="top" class="formLabel"> Sites </td>
+            <td class="formValue">
+                    <div class="formElement chkBoxGroup">
+                        <div class="reportRow">
+                            <div class="chkBox" ng-repeat="site in $ctrl.siteList track by $index">
+                                <input type="checkbox"  ng-click="$ctrl.onSiteCheck(site)" id="{{ site.name }}{{ $ctrl.alert.alertId }}" ng-checked="$ctrl.siteList[$index].selected">
+                                <label for="{{ site.name }}{{ $ctrl.alert.alertId }}">{{ site.name }}</label>
+                            </div>
+                            <div class="chkBox">
+                                <input type="checkbox" name="selectall" id="selectall{{ $ctrl.alert.alertId }}" ng-model="$ctrl.isSelectAllChecked" ng-change="$ctrl.onSelectAllCheck($ctrl.isSelectAllChecked)">
+                                <label for="selectall{{ $ctrl.alert.alertId }}"><b>Select All</b></label>
+                            </div>
+                        </div>
+                    </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="formLabel"> Display On </td>
+            <td class="formValue"> <input name="displayOn" type="date" min="{{ $ctrl.dateTomorrow | date:'yyyy-MM-dd' }}" ng-model="$ctrl.alert.displayOn"  ng-change="$ctrl.setRemoveOnMinDate($ctrl.alert.displayOn)" required/></td>
+        </tr>
+        <tr>
+            <td class="formLabel"> Remove On </td>
+            <td class="formValue"> <input name="removeOn" type="date" min="{{ $ctrl.removeOnMinDate | date:'yyyy-MM-dd'}}" ng-disabled="!$ctrl.alert.displayOn" ng-model="$ctrl.alert.removeOn" required/></td>
+        </tr>
+
+        <tr>
+            <td> <button class="btn" ng-click="$ctrl.submit()" ng-disabled="!$ctrl.formName.$valid || !$ctrl.areAnySitesSelected()" > {{ ($ctrl.alertId) ? "Edit Alert" : "Create Alert"}}</button>  </td>
+        </tr>
+    </table>
+</form>
+
+

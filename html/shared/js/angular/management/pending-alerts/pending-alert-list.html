@@ -1,0 +1,35 @@
+<style>
+    .largeField {
+        white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 350px;min-width: 350px
+    }
+</style>
+
+<div ng-app="pendingAlerts">
+    <table id="alertDetails">
+        <thead>
+            <tr style="list-style-type: none; -webkit-user-select: none; /* Safari 3.1+ */ -moz-user-select: none; /* Firefox 2+ */ -ms-user-select: none; /* IE 10+ */ user-select: none; /* Standard syntax */">
+                <th><sort-header field="alertId" order-manager="::$ctrl.orderManager"> Alert ID </sort-header></th>
+                <th><sort-header field="alertTitle" order-manager="::$ctrl.orderManager"> Title </sort-header></th>
+                <th> Message </th>
+                <th><sort-header field="displayOn" order-manager="::$ctrl.orderManager"> Display On </sort-header></th>
+                <th><sort-header field="removeOn" order-manager="::$ctrl.orderManager"> Remove On </sort-header></th>
+                <th> Sites </th>
+                <th> Edit </th>
+                <th> Remove </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="alert in alertPage">
+                <td>{{alert.alertId}}</td>
+                <td class="largeField">{{alert.alertTitle}}</td>
+                <td class="largeField">{{alert.alertMessage}}</td>
+                <td>{{alert.displayOn}}</td>
+                <td>{{alert.removeOn}}</td>
+                <td class="largeField">{{alert.alertSites}}</td>
+                <td><a ng-click="$ctrl.editAlert(alert.alertId)"> <img src="content/images/b_edit.png"> </a></td>
+                <td><a ng-click="$ctrl.deleteAlert(alert.alertId)"> <img src="content/images/b_drop.png" width="16" height="16" border="0"> </a></td>
+            </tr>
+        </tbody>
+    </table>
+    <pager items="$ctrl.pending | managedOrderBy:$ctrl.orderManager" items-per-page="5" on-page-changed="alertPage = page"></pager>
+</div>

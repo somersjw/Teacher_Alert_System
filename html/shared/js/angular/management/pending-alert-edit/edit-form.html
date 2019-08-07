@@ -1,0 +1,12 @@
+<div class="body-overlay" ng-click="$ctrl.close()"></div>
+<div class="modalWindow">
+    <div class="modalWindow_header">
+        <h2>
+            <button class="closeBtn" ng-click="$ctrl.close()">&times;</button>
+            Edit Alert
+        </h2>
+    </div>
+    <div class="modalWindow_body">
+        <alert-form alert-id="$ctrl.alertId" form-name="editAlertForm"></alert-form>
+    </div>
+</div>
