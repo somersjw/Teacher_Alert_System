@@ -6,7 +6,7 @@ use backend\services\TeacherNotificationService;
 use backend\services\AlertSystemService;
 // use LAZ\objects\razkids\TeacherInfoCache;
 
-class NotificationApiControlle{
+class NotificationApiController{
     /**
      * @var AlertSystemService $alertService;
      */
