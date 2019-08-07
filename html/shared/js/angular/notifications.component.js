@@ -51,7 +51,7 @@
                     alert.viewedAt = getCurrentDatetime();
                     var data = {'alertId' : alert.alertId, 'viewedAt' : alert.viewedAt };
                     notificationDataService.markAsRead(data)
-                        .then(function () {
+                        .then(function (data) {
                             ctrl.notificationInfo.unseenCount -= 1;
                         });
                 };

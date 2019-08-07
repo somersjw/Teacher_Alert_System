@@ -48,9 +48,9 @@ $router->get('/api/notifications/messages', function() {
 });
 
 $router->post('/api/notifications/viewed', function() {
-	print_r($_POST);
-	// $apiController = new NotificationApiController();
-	// return json_encode($apiController->getUserNotifications());
+	$apiController = new NotificationApiController();
+	return json_encode($_POST);
+	return json_encode($apiController->markAsViewed());
 });
 
 
