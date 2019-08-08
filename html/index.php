@@ -93,5 +93,6 @@ $router->get('/api/alert-system/alert', function() {
 	$postdata = file_get_contents("php://input");
 	$request = json_decode($postdata, true);
 	$alertId = (int)$request["alertId"];
-	return json_encode($apiController->deleteAlert((int)$alertId));
+	echo $alertId;
+	// return json_encode($apiController->deleteAlert((int)$alertId));
 });
