@@ -25,7 +25,7 @@
             }
 
             function deleteAlert(alertId) {
-                return $http.delete("/api/alert-system/alert", alertId);
+                return $http.delete("/api/alert-system/alert/" + alertId);
             }
 
             return {
