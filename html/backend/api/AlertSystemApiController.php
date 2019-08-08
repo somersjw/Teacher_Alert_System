@@ -29,9 +29,8 @@ class AlertSystemApiController {
         return $this->alertService->getSites();
     }
 
-    public function deleteAlert(ServerRequestInterface $request) {
-        $alertId = $request->getAttribute('alertId');
-        return $this->alertService->deleteAlert((int)$alertId);
+    public function deleteAlert(int $alertId) {
+        return $this->alertService->deleteAlert($alertId);
     }
 
     public function editAlert() {
