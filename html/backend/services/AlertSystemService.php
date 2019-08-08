@@ -6,9 +6,9 @@ require_once 'backend/businessObjects/AlertSite.php';
 require_once 'backend/businessObjects/Alert.php';
 require_once 'backend/businessObjects/Notification.php';
 require_once 'backend/services/NotificationSessionService.php';
+require_once 'backend/services/FormHelpers.php';
 
-use LAZ\objects\library\FormHelpers;
-use LAZ\objects\library\SiteHelper;
+use backend\services\FormHelpers;
 use backend\businessObjects\AlertSite;
 use backend\businessObjects\Alert;
 use backend\dataAccess\AlertSystemDbGateway;
