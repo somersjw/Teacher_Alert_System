@@ -34,8 +34,7 @@ class AlertSystemApiController {
     }
 
     public function editAlert($request) {
-        $alert = $this->resource;
-        return $this->alertService->editAlert($alert);
+        return $this->alertService->editAlert($request);
     }
 
     public function getPendingAlerts() {
