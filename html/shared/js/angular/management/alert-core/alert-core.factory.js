@@ -19,7 +19,8 @@
             // Have to use post in hacky way, LAZ routing allowed for slugs while this open source does not
             // TODO: find a router that supports slugs
             function getAlert(alertId) {
-                return $http.post("/api/alert-system/getalert", alertId);
+                var data = {"alertId" : alertId};
+                return $http.post("/api/alert-system/getalert", data);
             }
 
             function editAlert(formAlert) {
