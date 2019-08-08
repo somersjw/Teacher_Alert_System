@@ -88,7 +88,8 @@ $router->post('/resetDemo', function() {
 	header('Location: /teacher');
 });
 
-$router->delete('/api/alert-system/alert/{int}', function($alertId) {
+$router->delete('/api/alert-system/alert/*', function() {
 	$apiController = new AlertSystemApiController();
+	error_log(print_r($alertId, true));
 	// return json_encode($apiController->deleteAlert((int)$alertId));
 });
