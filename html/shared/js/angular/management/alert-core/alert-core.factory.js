@@ -9,7 +9,7 @@
             }
 
             function createAlert(alert) {
-                return $http.post("/api/alert-system/alert", alert);
+                return $http.post("/api/alert-system/createalert", alert);
             }
 
             function getPendingAlerts() {
