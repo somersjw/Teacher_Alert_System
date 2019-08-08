@@ -25,9 +25,22 @@ class Request implements RequestInterface
     }
     public function getBody() {
         if($this->requestMethod === "GET") {
-            return;
+            $body = array();
+            foreach($_POST as $key => $value)
+            {
+                $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+            }
+            return $body;
         }
         if ($this->requestMethod == "POST") {
+            $body = array();
+            foreach($_POST as $key => $value)
+            {
+                $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+            }
+            return $body;
+        }
+        if ($this->requestMethod == "DELETE") {
             $body = array();
             foreach($_POST as $key => $value)
             {
