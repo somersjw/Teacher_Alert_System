@@ -17,7 +17,7 @@
             }
 
             function getAlert(alertId) {
-                return $http.get("/api/alert-system/alert", alertId);
+                return $http.get("/api/alert-system/getalert", alertId);
             }
 
             function editAlert(formAlert) {

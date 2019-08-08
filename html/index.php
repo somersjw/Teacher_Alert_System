@@ -88,10 +88,20 @@ $router->post('/resetDemo', function() {
 	header('Location: /teacher');
 });
 
+
+// Have to use post in a really hacky way since this router doesnt support slugs :(
 $router->post('/api/alert-system/alert', function() {
 	$apiController = new AlertSystemApiController();
 	$postdata = file_get_contents("php://input");
 	$request = json_decode($postdata, true);
 	$alertId = (int)$request["alertId"];
 	return json_encode($apiController->deleteAlert((int)$alertId));
+});
+
+$router->post('/api/alert-system/getalert', function() {
+	$apiController = new AlertSystemApiController();
+	$postdata = file_get_contents("php://input");
+	$request = json_decode($postdata, true);
+	$alertId = (int)$request["alertId"];
+	return json_encode($apiController->getAlertById((int)$alertId));
 });
