@@ -42,8 +42,7 @@ class AlertSystemApiController {
         return $this->alertService->getPendingAlerts();
     }
 
-    public function getAlertById(ServerRequestInterface $request) {
-        $alertId = $request->getAttribute('alertId');
+    public function getAlertById(int $alertId) {
         return $this->alertService->getAlertById((int)$alertId);
     }
 
