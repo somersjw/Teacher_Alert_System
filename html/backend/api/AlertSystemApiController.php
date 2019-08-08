@@ -33,7 +33,7 @@ class AlertSystemApiController {
         return $this->alertService->deleteAlert($alertId);
     }
 
-    public function editAlert() {
+    public function editAlert($request) {
         $alert = $this->resource;
         return $this->alertService->editAlert($alert);
     }

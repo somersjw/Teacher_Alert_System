@@ -90,7 +90,7 @@ $router->post('/resetDemo', function() {
 
 
 // Have to use post in a really hacky way since this router doesnt support slugs :(
-$router->post('/api/alert-system/alert', function() {
+$router->post('/api/alert-system/alertbyid', function() {
 	$apiController = new AlertSystemApiController();
 	$postdata = file_get_contents("php://input");
 	$request = json_decode($postdata, true);
@@ -104,4 +104,11 @@ $router->post('/api/alert-system/getalert', function() {
 	$request = json_decode($postdata, true);
 	$alertId = (int)$request["alertId"];
 	return json_encode($apiController->getAlertById((int)$alertId));
+});
+
+$router->post('/api/alert-system/editalert', function() {
+	$apiController = new AlertSystemApiController();
+	$postdata = file_get_contents("php://input");
+	$request = json_decode($postdata, true);
+	return json_encode($apiController->editAlert($request));
 });

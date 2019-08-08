@@ -24,12 +24,12 @@
             }
 
             function editAlert(formAlert) {
-                return $http.patch("/api/alert-system/alert", formAlert);
+                return $http.post("/api/alert-system/editalert", formAlert);
             }
 
             function deleteAlert(alertId) {
                 var data = {"alertId" : alertId};
-                return $http.post("/api/alert-system/alert", data);
+                return $http.post("/api/alert-system/alertbyid", data);
             }
 
             return {
