@@ -7,12 +7,14 @@ require_once 'backend/businessObjects/Alert.php';
 require_once 'backend/businessObjects/Notification.php';
 require_once 'backend/services/NotificationSessionService.php';
 require_once 'backend/services/FormHelpers.php';
+require_once 'backend/services/AlertSystemValidator.php';
 
 use backend\services\FormHelpers;
 use backend\businessObjects\AlertSite;
 use backend\businessObjects\Alert;
 use backend\dataAccess\AlertSystemDbGateway;
 use backend\businessObjects\Notification;
+use backend\services\AlertSystemValidator;
 use backend\services\NotificationSessionService;
 
 class AlertSystemService {

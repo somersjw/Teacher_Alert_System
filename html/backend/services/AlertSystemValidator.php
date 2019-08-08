@@ -1,8 +1,10 @@
 <?php
-namespace LAZ\objects\admin2\alertSystem\services;
+namespace backend\services;
+require_once 'backend/services/FormHelpers.php';
+require_once 'backend/businessObjects/Alert.php';
 
-use LAZ\objects\admin2\alertSystem\businessObjects\Alert;
-use LAZ\objects\library\FormHelpers;
+use backend\services\FormHelpers;
+use backend\businessObjects\Alert;
 
 class AlertSystemValidator {
     const MAX_ALERT_TITLE_LENGTH = 50;
@@ -46,13 +48,11 @@ class AlertSystemValidator {
     }
 
     static private function isDisplayOnValid($displayOn) {
-       $formHelper = new FormHelpers();
-        return $formHelper->isSQLDate($displayOn) && $displayOn > date('Y-m-d');
+        return FormHelper::isSQLDate($displayOn) && $displayOn > date('Y-m-d');
     }
 
     static private function isRemoveOnValid($removeOn) {
-        $formHelper = new FormHelpers();
-        return $formHelper->isSQLDate($removeOn);
+        return FormHelpers::isSQLDate($removeOn);
     }
 
     static private function isDisplayOnBeforeRemoveOn($displayOn, $removeOn) {
