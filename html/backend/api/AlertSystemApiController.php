@@ -20,9 +20,8 @@ class AlertSystemApiController {
         $this->alertService = new AlertSystemService();
     }
 
-    public function createAlert() {
-        $alert = $this->resource;
-        return $this->alertService->createAlert($alert);
+    public function createAlert($request) {
+        return $this->alertService->createAlert($request);
     }
 
     public function getSites() {

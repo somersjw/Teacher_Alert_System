@@ -98,6 +98,13 @@ $router->post('/api/alert-system/alertbyid', function() {
 	return json_encode($apiController->deleteAlert((int)$alertId));
 });
 
+$router->post('/api/alert-system/createalert', function() {
+	$apiController = new AlertSystemApiController();
+	$postdata = file_get_contents("php://input");
+	$request = json_decode($postdata, true);
+	return json_encode($apiController->createAlert($request));
+});
+
 $router->post('/api/alert-system/getalert', function() {
 	$apiController = new AlertSystemApiController();
 	$postdata = file_get_contents("php://input");
