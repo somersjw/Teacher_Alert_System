@@ -48,7 +48,7 @@ class AlertSystemValidator {
     }
 
     static private function isDisplayOnValid($displayOn) {
-        return FormHelper::isSQLDate($displayOn) && $displayOn > date('Y-m-d');
+        return FormHelpers::isSQLDate($displayOn) && $displayOn > date('Y-m-d');
     }
 
     static private function isRemoveOnValid($removeOn) {
