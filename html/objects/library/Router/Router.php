@@ -7,7 +7,8 @@ class Router
     private $request;
     private $supportedHttpMethods = array(
         "GET",
-        "POST"
+        "POST",
+        "DELETE"
     );
     function __construct(RequestInterface $request) {
         $this->request = $request;

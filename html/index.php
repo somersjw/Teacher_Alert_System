@@ -1,5 +1,4 @@
 <?php
-
 require_once 'objects/library/Router/Request.php';
 require_once 'objects/library/Router/Router.php';
 require_once 'backend/api/AlertSystemApiController.php';
@@ -8,6 +7,7 @@ require_once 'backend/businessObjects/Notification.php';
 require_once 'backend/dataAccess/DataManager.php';
 
 session_start();
+
 use objects\library\Router\Request;
 use objects\library\Router\Router;
 use backend\api\AlertSystemApiController;
@@ -21,7 +21,6 @@ if (!array_key_exists("user", $_SESSION)) {
 
 $request = new Request();
 $router = new Router($request);
-
 
 $router->get('/', function () {
 	include 'include.html';
@@ -89,7 +88,7 @@ $router->post('/resetDemo', function() {
 	header('Location: /teacher');
 });
 
-$router->delete('/api/alert-system/alert', function() {
+$router->delete('/api/alert-system/alert/{id}', function($alertId) {
 	$apiController = new AlertSystemApiController();
 	// return json_encode($apiController->deleteAlert((int)$alertId));
 });
