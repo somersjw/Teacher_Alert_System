@@ -88,7 +88,7 @@ $router->post('/resetDemo', function() {
 	header('Location: /teacher');
 });
 
-$router->get('/api/alert-system/alert', function() {
+$router->post('/api/alert-system/alert', function() {
 	$apiController = new AlertSystemApiController();
 	$postdata = file_get_contents("php://input");
 	$request = json_decode($postdata, true);
