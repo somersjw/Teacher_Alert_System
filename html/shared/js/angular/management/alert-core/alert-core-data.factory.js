@@ -86,7 +86,8 @@
                 }
 
                 function addAlertToPendingTable(data, alert) {
-                    ctrl.pendingAlerts.push(formatNewAlertForTable(alert, data));
+                    var alertToAdd = formatNewAlertForTable(alert, data);
+                    ctrl.pendingAlerts.push(alertToAdd);
                 }
 
                 function formatNewAlertForTable(alert, alertId) {
