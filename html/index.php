@@ -33,6 +33,7 @@ $router->map('GET', '/', function() {
 	include 'index.html';
 });
 
+$router->match();
 // $router->get('/', function () {
 // 	include 'include.html';
 //     include 'navbar.html';
