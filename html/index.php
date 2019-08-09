@@ -46,6 +46,7 @@ $router->map('GET', '/manage', function() {
 });
 
 $router->map('GET', '/api/alert-system/sites', function() {
+	echo 'test';
 	$apiController = new AlertSystemApiController();
 	return json_encode( $apiController->getSites());
 });
