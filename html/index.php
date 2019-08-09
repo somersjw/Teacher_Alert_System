@@ -52,21 +52,20 @@ $router->map('GET', '/api/alert-system/sites', function() {
 
 $router->map('GET', '/api/alert-system/pending', function() {
 	$apiController = new AlertSystemApiController();
-	return json_encode($apiController->getPendingAlerts());
+	echo json_encode($apiController->getPendingAlerts());
 });
 
 $router->map('GET', '/api/notifications/messages', function() {
 	$apiController = new NotificationApiController();
-	return json_encode($apiController->getUserNotifications());
+	echo json_encode($apiController->getUserNotifications());
 });
 
 $router->map('POST','/api/notifications/viewed', function() {
 	$postdata = file_get_contents("php://input");
 	$request = json_decode($postdata, true);
 	$apiController = new NotificationApiController();
-	return json_encode($apiController->markAsViewed($request));
+	echo json_encode($apiController->markAsViewed($request));
 });
-
 
 $router->map('POST', '/selectUser', function() {
 	if (array_key_exists("user", $_SESSION)) {
@@ -96,13 +95,13 @@ $router->map('POST', '/resetDemo', function() {
 $router->map('DELETE', '/api/alert-system/alert/[i:id]', function($id) {
 	$apiController = new AlertSystemApiController();
 	$alertId = (int)$id;
-	return json_encode($apiController->deleteAlert($alertId));
+	echo json_encode($apiController->deleteAlert($alertId));
 });
 
 $router->map('GET', '/api/alert-system/alert/[i:id]', function($id) {
 	$apiController = new AlertSystemApiController();
 	$alertId = (int)$id;
-	return json_encode($apiController->getAlertById($alertId));
+	echo json_encode($apiController->getAlertById($alertId));
 });
 
 
@@ -110,14 +109,14 @@ $router->map('POST', '/api/alert-system/alert', function() {
 	$apiController = new AlertSystemApiController();
 	$postdata = file_get_contents("php://input");
 	$request = json_decode($postdata, true);
-	return json_encode($apiController->createAlert($request));
+	echo json_encode($apiController->createAlert($request));
 });
 
 $router->map('PATCH', '/api/alert-system/editalert', function() {
 	$apiController = new AlertSystemApiController();
 	$postdata = file_get_contents("php://input");
 	$request = json_decode($postdata, true);
-	return json_encode($apiController->editAlert($request));
+	echo json_encode($apiController->editAlert($request));
 });
 
 // match current request url
