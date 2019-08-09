@@ -112,7 +112,7 @@ $router->map('POST', '/api/alert-system/alert', function() {
 	echo json_encode($apiController->createAlert($request));
 });
 
-$router->map('PATCH', '/api/alert-system/editalert', function() {
+$router->map('PATCH', '/api/alert-system/alert', function() {
 	$apiController = new AlertSystemApiController();
 	$postdata = file_get_contents("php://input");
 	$request = json_decode($postdata, true);
