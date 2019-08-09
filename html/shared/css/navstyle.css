@@ -11,5 +11,5 @@
     line-height: 1.6;
     color: #0085c9;
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: none !important;
 }
