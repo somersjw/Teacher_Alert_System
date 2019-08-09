@@ -6,8 +6,10 @@
     display:inline-block;
     margin-left: 10px;
     margin-right: 10px;
-    color: #000;
     font-family: Arial;
     font-size: 15px;
     line-height: 1.6;
+    color: #0085c9;
+    cursor: pointer;
+    text-decoration: none;
 }
