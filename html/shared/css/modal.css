@@ -1,0 +1,141 @@
+/*
+MODAL WINDOW
+*/
+
+.modalWindow {
+    background-color: #FFF;
+    box-shadow: 0 0 20px rgba(0,0,0,0.13);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-height: 95vh;
+    text-align: left;
+    width: 944px;
+    transform: translate(-50%, -50%);
+    z-index: 5000; /* same as message box and overlay */
+}
+
+    /* not in use, but keeping for future reference */
+    .modalWindowContainer-noTransform {
+        align-items: center;
+        background: rgba(0,0,0,.3);
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        left: 0;
+        max-height: 100vh;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        z-index: 999999;
+    }
+    .modalWindow-noTransform {
+        position: static;
+        transform: none;
+    }
+
+.modalWindow_header {
+    border-bottom: solid 2px #e0e0e0;
+    box-sizing: border-box;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 1.65rem;
+    font-weight: bold;
+    line-height: 100%;
+    margin: 0;
+    padding: 18px;
+    text-transform: none;
+}
+    .modalWindow_header h1 {
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: 1.65rem;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+    }
+    .modalWindow_header h2 {
+        font-size: 1.15rem;
+        font-weight: normal;
+        margin: 6px 0 0 0;
+        padding: 0;
+    }
+
+.modalWindow_body {
+    box-sizing: border-box;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 18px;
+}
+
+.modalWindow_footer {
+    border-top: solid 2px #e0e0e0;
+    box-sizing: border-box;
+    padding: 18px;
+    width: 100%;
+}
+    .modalWindow_footerMessage {
+        display: block;
+        font-style: italic;
+        margin: -9px 0 9px 0;
+        text-align: right;
+    }
+
+/* a smaller modal */
+.modalWindow-sm {
+    width: 500px;
+}
+
+/* a modal containing an iframe */
+.modalWindow-iframe {
+    width: auto;
+}
+.modalWindow-iframe iframe {
+    border: none;
+    display: block;
+}
+
+/* ----------------------------- */
+/* shadows for scrolling content */
+
+.modalWindow_body {
+    background:
+        /* Shadow covers */
+        linear-gradient(white, white),
+        linear-gradient(white, white) 0 100%,
+
+        /* Shadows */
+        linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0)),
+        linear-gradient(to top, rgba(0,0,0,0.1), rgba(0,0,0,0)) 0 100%;
+    background-attachment: local, local, scroll, scroll;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-size: 0px;
+}
+
+/* if theres a header and a footer, add top and bottom shadows */
+.modalWindow_header + .modalWindow_body:not(:last-child) {
+    background-size: 100% 12px, 100% 12px, 100% 12px, 100% 12px;
+}
+/* if theres no header, add bottom shadow */
+.modalWindow_body:first-child:not(:last-child) {
+    background-size: 100% 12px, 100% 12px, 100% 0px, 100% 12px;
+}
+/* if theres no footer, add top shadow */
+.modalWindow_header + .modalWindow_body:last-child {
+    background-size: 100% 12px, 100% 12px, 100% 12px, 100% 0px;
+}
+
+/** helper classes for positioning content inside modal with flexbox **/
+.modalWindow .flexBox {
+    display: flex;
+}
+.modalWindow .flexBox-spaceBetween {
+    justify-content: space-between;
+}
+.modalWindow .flexBox-spaceAround {
+    justify-content: space-around;
+}
+
+
