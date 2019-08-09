@@ -1,6 +1,4 @@
 <?php
-require_once 'objects/library/Router/Request.php';
-require_once 'objects/library/Router/Router.php';
 require_once 'objects/library/Router/AltoRouter.php';
 require_once 'backend/api/AlertSystemApiController.php';
 require_once 'backend/api/NotificationApiController.php';
@@ -9,8 +7,6 @@ require_once 'backend/dataAccess/DataManager.php';
 
 session_start();
 
-use objects\library\Router\Request;
-use objects\library\Router\Router;
 use objects\library\Router\AltoRouter;
 use backend\api\AlertSystemApiController;
 use backend\api\NotificationApiController;
