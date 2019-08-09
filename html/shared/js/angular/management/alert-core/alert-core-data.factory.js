@@ -91,7 +91,7 @@
                 }
 
                 function formatNewAlertForTable(alert, alertId) {
-                    alert.alertId = alertId.toString();
+                    alert.alertId = parseInt(alertId);
                     alert.displayOn = alert.displayOn.toISOString().split("T")[0];
                     alert.removeOn = alert.removeOn.toISOString().split("T")[0];
                     var siteCSV = "";
