@@ -306,7 +306,8 @@ table.sortable td .descending{
 body {
     font-weight: normal;
     font-size: 11px;
-    font-family: Arial, Verdana, Helvetica, sans-serif
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    padding: 10px;
 }
 
 .body {
