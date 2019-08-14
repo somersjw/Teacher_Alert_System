@@ -6,10 +6,15 @@
 </head>
 
 <body>
+<div>
+	<h2> Select a user to see their notifications!</h2> 
+	<p> Current User: <?php echo $_SESSION["user"]["name"] ?> </p>
+</div>
+
 <form method="post" action="/selectUser">
-	<input type="radio" name="user" value="Readerdude*1"> Readerdude
-	<input type="radio" name="user" value="ScienceRulez*2"> ScienceRulez
-	<input type="radio" name="user" value="ScienceReader*3"> ScienceReader
+	<input type="radio" name="user" value="Readerdude*1"> Reading A-Z
+	<input type="radio" name="user" value="ScienceRulez*2"> Science A-Z
+	<input type="radio" name="user" value="ScienceReader*3"> Both
 	<input type="submit" name="submit" value="Submit">
 </form>
 
